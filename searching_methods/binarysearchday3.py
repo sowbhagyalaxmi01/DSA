@@ -144,85 +144,101 @@ print(search_insert([1, 3, 5, 6], 2))
 # arr = [1, 2, 2, 2, 3, 4]
 # target = 2
 # Return the first index of 2.
-def first_occurances(arr, target):
-    low = 0
-    high = len(arr) - 1
+def first_occurrence(arr, target):
+
+    low = 0                  # First index
+    high = len(arr) - 1      # Last index
+    answer = -1              # Target not found yet
 
     while low <= high:
-        mid = (low + high) // 2
+
+        mid = (low + high) // 2   # Find middle index
+
         if arr[mid] == target:
-            answer=mid
-            high=mid-1
-        elif arr[mid]<target:
-            low=mid+1
+            answer = mid           # Target found, save index
+            high = mid - 1         # Go LEFT to find an earlier target
+
+        elif arr[mid] < target:
+            low = mid + 1          # Target is on the RIGHT
+
         else:
-            high=mid-1
-    return answer            
-print(first_occurances([1, 2,2,2,3, 6], 2))
+            high = mid - 1         # Target is on the LEFT
+
+    return answer                  # Return first occurrence
+print(first_occurrence([1, 2, 2, 2, 3, 4], 2))
 
 
 #9. Find Last Occurrence
 # arr = [1, 2, 2, 2, 3, 4]
 # target = 2
 # Expected:3
-def last_occurances(arr, target):
-    low = 0
-    high = len(arr) - 1
+def last_occurrence(arr, target):
+
+    low = 0                  # First index
+    high = len(arr) - 1      # Last index
+    answer = -1              # Target not found yet
 
     while low <= high:
-        mid = (low + high) // 2
+
+        mid = (low + high) // 2   # Find middle index
+
         if arr[mid] == target:
-            answer=mid
-            low=mid+1
-        elif arr[mid]<target:
-            low=mid+1
+            answer = mid           # Target found, save index
+            low = mid + 1          # Go RIGHT to find a later target
+
+        elif arr[mid] < target:
+            low = mid + 1          # Target is on the RIGHT
+
         else:
-            high=mid-1
-    return answer            
-print(last_occurances([1, 2,2,2,3, 6], 2))
+            high = mid - 1         # Target is on the LEFT
+
+    return answer                  # Return last occurrence
+print(last_occurrence([1, 2, 2, 2, 3, 4], 2))
 
 
 #10.Count Occurrences
 # arr = [1, 2, 2, 2, 3, 4]
 # target = 2
 # Expected:3
-def first_occurrence(arr, target):
-    low = 0
-    high = len(arr) - 1
-    answer = -1
-    while low <= high:
-        mid = (low + high) // 2
-        if arr[mid] == target:
-            answer = mid
-            high = mid - 1
-        elif arr[mid] < target:
-            low = mid + 1
-        else:
-            high = mid - 1
-    return answer
-
-
-def last_occurrence(arr, target):
-    low = 0
-    high = len(arr) - 1
-    answer = -1
-    while low <= high:
-        mid = (low + high) // 2
-        if arr[mid] == target:
-            answer = mid
-            low = mid + 1
-        elif arr[mid] < target:
-            low = mid + 1
-        else:
-            high = mid - 1
-    return answer
-
-
 def count_occurrences(arr, target):
-    first = first_occurrence(arr, target)
-    last = last_occurrence(arr, target)
+
+    # Find first occurrence
+    low = 0
+    high = len(arr) - 1
+    first = -1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == target:
+            first = mid
+            high = mid - 1       # search left
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    # If target is not present
     if first == -1:
         return 0
+
+    # Find last occurrence
+    low = 0
+    high = len(arr) - 1
+    last = -1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == target:
+            last = mid
+            low = mid + 1        # search right
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    # Count = last index - first index + 1
     return last - first + 1
 print(count_occurrences([1, 2, 2, 2, 3, 6], 2))
 
@@ -256,9 +272,9 @@ def find_min(arr):
         mid = (low + high) // 2
 
         if arr[mid] > arr[high]:
-            low = mid + 1
+            low = mid + 1      # minimum is RIGHT
         else:
-            high = mid
+            high = mid       #  minimum is LEFT or MID
 
     return arr[low]
 
@@ -312,3 +328,20 @@ def single_element(arr):
 
 
 print(single_element([1, 1, 2, 2, 3, 4, 4, 5, 5]))
+
+
+
+#count freq of each unique word inside txt sentence
+sentence = input("Enter a sentence: ")#cat dog cat
+words = sentence.split()
+freq = {}
+for word in words:
+    if word in freq:
+        freq[word] += 1
+    else:
+        freq[word] = 1
+count=0
+for word in freq:
+    if freq[word]==1:
+        count+=1
+print("count:",count)        
