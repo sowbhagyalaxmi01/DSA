@@ -212,13 +212,12 @@ def count_occurrences(arr, target):
 
         if arr[mid] == target:
             first = mid
-            high = mid - 1       # search left
+            high = mid - 1
         elif arr[mid] < target:
             low = mid + 1
         else:
             high = mid - 1
 
-    # If target is not present
     if first == -1:
         return 0
 
@@ -232,16 +231,16 @@ def count_occurrences(arr, target):
 
         if arr[mid] == target:
             last = mid
-            low = mid + 1        # search right
+            low = mid + 1
         elif arr[mid] < target:
             low = mid + 1
         else:
             high = mid - 1
 
-    # Count = last index - first index + 1
     return last - first + 1
-print(count_occurrences([1, 2, 2, 2, 3, 6], 2))
 
+
+print(count_occurrences([1, 2, 2, 2, 3, 6], 2))
 
 #11.Find Peak Element
 # arr = [1, 3, 5, 7, 6, 4, 2]
@@ -285,23 +284,29 @@ print(find_min([4, 5, 6, 7, 0, 1, 2]))
 # arr = [4, 5, 6, 7, 0, 1, 2]
 # target = 0
 # Expected:4
-def find_min(arr):
+def search(arr, target):
     low = 0
     high = len(arr) - 1
-
-    while low < high:
+    while low <= high:
         mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
 
-        if arr[mid] > arr[high]:
-            low = mid + 1
+        # Left half is sorted
+        if arr[low] <= arr[mid]:
+            if arr[low] <= target < arr[mid]:
+                high = mid - 1
+            else:
+                low = mid + 1
+
+        # Right half is sorted
         else:
-            high = mid
-
-    return arr[low]
-
-
-print(find_min([4, 5, 6, 7, 0, 1, 2]))
-
+            if arr[mid] < target <= arr[high]:
+                low = mid + 1
+            else:
+                high = mid - 1
+    return -1
+print(search([4, 5, 6, 7, 0, 1, 2], 0))
 
 # 14.
 # Find Single Element
@@ -329,7 +334,45 @@ def single_element(arr):
 
 print(single_element([1, 1, 2, 2, 3, 4, 4, 5, 5]))
 
+#find insert position
+def insertion(arr, target): 
+    low = 0 
+    high = len(arr) - 1 
+ 
+    while low <= high: 
+        mid = (low + high) // 2 
+ 
+        if arr[mid] < target: 
+            low = mid + 1 
+        else: 
+            high = mid - 1 
+ 
+    return low 
+print(insertion([1,3,5,7],6))
 
+
+#interger square root
+def square_root(n):
+    low = 0
+    high = n
+    answer = 0
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if mid * mid == n:
+            return mid
+
+        elif mid * mid < n:
+            answer = mid
+            low = mid + 1
+
+        else:
+            high = mid - 1
+
+    return answer
+print(square_root(25))  # 5
+print(square_root(20))  # 4               
 
 #count freq of each unique word inside txt sentence
 sentence = input("Enter a sentence: ")#cat dog cat
