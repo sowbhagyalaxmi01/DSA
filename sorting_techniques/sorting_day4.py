@@ -62,6 +62,5 @@
 # Merge Sort      → O(n)
 # Quick Sort      → O(log n) average
 # Heap Sort       → O(1)
-
 # IMPORTANT:
 # Sorting is useful because many algorithms,such as Binary Search, work efficiently on sorted data.
