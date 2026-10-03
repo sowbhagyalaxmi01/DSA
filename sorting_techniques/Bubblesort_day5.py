@@ -34,3 +34,11 @@ arr=list(map(int,input().split()))
 print(bubble_sort(arr))
 
 
+# for i → controls passes
+#     ↓
+# for j → compares adjacent elements
+#     ↓
+# if → checks whether swapping is needed
+#     ↓
+# swap → puts the larger element to the right
+
