@@ -128,3 +128,45 @@ def bubble_sort(arr):
         passes+=1 #checking only 1 pass, then the j loop tells us how many comparisons happen in that one pass.           
     return passes
 print(bubble_sort([3, 2,7, 1]))
+
+
+
+# Implement optimized Bubble Sort. If no swaps happen during a pass, stop the algorithm because the array is already sorted.
+# optimized  bubble sort:Normal Bubble Sort keeps doing passes even if the array is already sorted.
+def bubble_sort(arr):
+    for i in range(len(arr)):
+        swapped = False
+        for j in range(len(arr) - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        if swapped == False:
+            break
+    return arr
+print(bubble_sort([1, 2, 3, 4, 5]))
+
+
+def bubble_sort(arr):
+    for i in range(len(arr)):
+        count = 0  # Reset count for every new pass
+        for j in range(len(arr) - i - 1):
+            # Compare adjacent elements
+            if arr[j] > arr[j + 1]:
+                # Swap if left element is bigger
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                count += 1  # Increase count only when swap happens
+        # If no swap happened in this pass, array is sorted
+        if count == 0:
+            break
+    return arr
+print(bubble_sort([5, 1, 4, 2, 8]))
+
+
+#Sort an array containing both positive and negative numbers using Bubble Sort.
+def bubble_sort(arr):
+    for i in range(len(arr)):
+        for j in range(len(arr)-i-1):
+            if arr[j]>arr[j+1]:
+                arr[j],arr[j+1]=arr[j+1],arr[j]
+    return arr
+print(bubble_sort([3, -1, 4, -5, 2]))
