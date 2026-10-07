@@ -17,21 +17,23 @@
 def insertion_sort(arr):
 
     # Start from second element
-    for i in range(1, len(arr)):
+    for i in range(1, len(arr)):#[5, 4, 2, 1] i=1,2,3
 
         # Current element
-        key = arr[i]
+        key = arr[i]#arr[1]=4
 
-        # Previous element
-        j = i - 1
+        # Previous element(left element)
+        j = i - 1#0
 
         # Shift bigger elements to the right
-        while j >= 0 and arr[j] > key:
+        while j >= 0 and arr[j] > key:#arr[0]>key
             arr[j + 1] = arr[j]
             j -= 1
 
         # Insert key in correct position
-        arr[j + 1] = key
+        arr[j + 1] = key#arr[-1+1]=key
     return arr    
 # Function call
 print(insertion_sort( [5, 3, 4, 1]))
+
+
