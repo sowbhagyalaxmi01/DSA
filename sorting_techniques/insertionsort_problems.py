@@ -8,6 +8,7 @@ def insertion_sort(arr):
         while j >= 0 and arr[j] > key:
             arr[j + 1] = arr[j]
             j -= 1
+
         # Put key in the correct position
         arr[j + 1] = key
     return arr
@@ -28,6 +29,7 @@ def insertion_sort(arr):
             arr[j + 1] = arr[j]
             j -= 1
         # Put key in the correct position
+        
         arr[j + 1] = key
     return arr
 arr = [5, 2, 4, 1, 3]
