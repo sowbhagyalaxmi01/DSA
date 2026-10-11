@@ -23,12 +23,10 @@ def insertion_sort(arr):
 
         # Previous element(left element)
         j = i - 1#0
-
         # Shift bigger elements to the right
         while j >= 0 and arr[j] > key:#arr[0]>key
             arr[j + 1] = arr[j]
             j -= 1
-
         # Insert key in correct position
         arr[j + 1] = key#arr[-1+1]=key
     return arr    
