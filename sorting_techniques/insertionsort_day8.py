@@ -20,7 +20,6 @@ def insertion_sort(arr):
 
         # Current element
         key = arr[i]#arr[1]=4
-
         # Previous element(left element)
         j = i - 1#0
         # Shift bigger elements to the right
