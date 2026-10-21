@@ -1,4 +1,52 @@
+#first code
+def merge_sort(arr):
+    # Base case: if array has 0 or 1 element, it is already sorted
+    if len(arr) <= 1:
+        return arr
 
+    # Find the middle position
+    mid = len(arr) // 2
+
+    # Recursively sort the left half
+    left = merge_sort(arr[:mid])
+
+    # Recursively sort the right half
+    right = merge_sort(arr[mid:])
+
+    # Create an empty list to store sorted elements
+    result = []
+
+    # i is the index of left; j is the index of right
+    i = j = 0
+
+    # Compare elements while both lists have elements
+    while i < len(left) and j < len(right):
+
+        # If left element is smaller or equal
+        if left[i] <= right[j]:
+            result.append(left[i])  # Add left element
+            i += 1                  # Move to next left element
+
+        else:
+            result.append(right[j]) # Add right element
+            j += 1                  # Move to next right element
+
+    # Add any remaining elements from the left list
+    result.extend(left[i:])
+
+    # Add any remaining elements from the right list
+    result.extend(right[j:])
+
+    # Return the fully sorted array
+    return result
+
+arr = [6, 4, 3, 2, 7, 1]
+print(merge_sort(arr))
+
+
+
+
+#alternate code
 def merge_sort(arr):
     # Divide only if the list has more than one element
     if len(arr) > 1:
@@ -47,25 +95,4 @@ print(arr)
 
 
 
-##SECOND CODE
 
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    mid = len(arr) // 2
-    left = merge_sort(arr[:mid])
-    right = merge_sort(arr[mid:])
-    result = []
-    i = j = 0
-    while i < len(left) and j < len(right):
-        if left[i] <= right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    result += left[i:]
-    result += right[j:]
-    return result
-arr = [45, 32, 76, 12]
-print(merge_sort(arr))
