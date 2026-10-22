@@ -85,8 +85,7 @@ def merge_sort(arr):
         while j < len(R):
             arr[k] = R[j]
             j += 1
-            k += 1
-
+            k += 1g
 arr = [45, 32, 76, 32, 12, 56]
 merge_sort(arr)
 print(arr)
