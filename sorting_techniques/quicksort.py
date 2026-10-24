@@ -29,20 +29,21 @@
 # code:
 # Quick Sort
 
-def quick_sort(arr):
+def quick_sort(arr):#8, 6, 4, 9, 1, 2  ,#8,6,4,1,2
 
-    n = len(arr)  # Find the number of elements
+    n = len(arr) #6,5
 
     # Base condition: 0 or 1 element is already sorted
     if n <= 1:
         return arr
 
     # Choose the middle element as pivot
-    pivot = arr[n // 2]
 
-    left = []    # Store elements smaller than pivot
-    middle = []  # Store elements equal to pivot
-    right = []   # Store elements greater than pivot
+    pivot = arr[n // 2]#arr[6//2]=arr[3]=9(p),arr[5//2]=arr[2]=4(p)
+
+    left = []    # Store elements smaller than pivot#[8,6,4,1,2],[1,2],[],[1]
+    middle = []  # Store elements equal to pivot#[9],[4],[6],[2]
+    right = []   # Store elements greater than pivot#[],[8,6],[8],[]
 
     # Compare each element with the pivot
     for x in arr:
