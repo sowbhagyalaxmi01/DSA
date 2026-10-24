@@ -64,4 +64,4 @@ def quick_sort(arr):#8, 6, 4, 9, 1, 2  ,#8,6,4,1,2
 # Main program
 a = [8, 6, 4, 9, 1, 2]
 
-print(quick_sort(a))g
+print(quick_sort(a))
