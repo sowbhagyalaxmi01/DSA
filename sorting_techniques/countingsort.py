@@ -2,17 +2,6 @@
 # Counting Sort is a sorting algorithm that counts how many times each number appears and then uses those counts to sort the array.
 # Unlike Bubble Sort, it does not compare two numbers to decide which is smaller.
 
-#points
-# Counting Sort is a non-comparison sorting algorithm.
-# It sorts elements by counting the frequency of each value.
-# It uses an additional array called the count array.
-# It works best when the range of input values is small.
-# It is mainly used for sorting integers.
-# It does not compare elements with each other.
-# Time Complexity: \(O(n+k)\).
-# Space Complexity: \(O(n+k)\) in the standard implementation.
-# It is efficient for small ranges of values.
-# It requires extra memory for counting.
 
 def counting_sort(arr):
     # Find the largest number
@@ -39,26 +28,24 @@ print(counting_sort(arr))
 
 
 #second code
-def counting_sort(arr):
-    max_val = max(arr)
-    count = [0]*(max_val+1) #[0 0 1 2 1]
-                            # 0 1 2 3 4
+def counting_sort(arr):#[4, 2, 2, 8, 3, 3, 1]
+    max_val = max(arr)#8
+    count = [0] * (max_val + 1)#[0,0,0,0,0,0,0,0,0] -->[0,1,2,2,1,0,0,0,1]
 
-    for num in arr: #3 3 2 4
-        count[num]+=1
+    # Count frequency
+    for i in arr:#
+        count[i] += 1
 
-    j= 0
-    for i in range(len(count)): #0
-        while count[i]>0:
+    # Place elements back into arr
+    j = 0#represent idx of org array
+    for i in range(len(count)):#i takes val from count
+        while count[i] > 0:
             arr[j] = i
-            j+=1
-            count[i]-=1
-    return arr
-a = [8,6,4,9,1,2]
-b= [3, 3, 2, 4]
-print(counting_sort(a)) 
-print(counting_sort(b))             
-
+            j += 1
+            count[i] -= 1
+    return arr#[1,2,2,3,3,4,8]
+arr = [4, 2, 2, 8, 3, 3, 1]
+print(counting_sort(arr))
 
 
 #2. Why Not Counting Sort?(drawbacks)
