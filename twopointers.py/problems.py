@@ -23,3 +23,50 @@ while left<right:#1<5
         right-=1
 
 print(max_area)
+
+
+
+
+#Reverse String
+s= list(map(int,input().split()))
+left=0
+right=len(s)-1
+while left<right:
+    s[left],s[right]=s[right],s[left]
+    left+=1
+    right-=1
+print(s)    
+
+
+#Valid Palindrome — LeetCode 125(also requires ignoring spaces, punctuation, and capitalization.)
+s = "A man, a plan, a canal: Panama"
+
+s = ''.join(ch.lower() for ch in s if ch.isalnum())
+
+l = 0
+r = len(s) - 1
+
+while l < r:
+    if s[l] == s[r]:
+        l += 1
+        r -= 1
+    else:
+        print("Not palindrome")
+        break
+else:
+    print("Palindrome")
+
+
+
+#Remove Duplicates from Sorted Array
+nums = [1, 1, 2, 2, 3]
+
+left = 0
+
+for right in range(1, len(nums)):
+    if nums[left] != nums[right]:
+        left += 1
+        nums[left] = nums[right]
+
+print(nums[:left + 1])
+print(left + 1)    
