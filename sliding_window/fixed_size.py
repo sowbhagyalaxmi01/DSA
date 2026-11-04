@@ -1,7 +1,6 @@
 # Fixed-size Sliding Window Algorithm
 # Definition: A fixed-size Sliding Window maintains a window of exactly K elements while moving through an array or string.
 
-
 # Algorithm steps:
 # 1. Initialize the window size K.
 # 2. Calculate the sum of the first K elements.
