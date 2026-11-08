@@ -13,7 +13,6 @@
 # 8. Repeat until the array ends.
 
 
-
 #code
 # Given array
 nums = [2, 1, 5, 1, 3, 2]
