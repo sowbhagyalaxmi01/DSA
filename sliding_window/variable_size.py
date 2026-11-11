@@ -12,4 +12,4 @@
 #    - Update the minimum length.
 #    - Remove the leftmost element.
 #    - Move left forward.
-#  7. Return the minimum length.
+# 7. Return the minimum length.
