@@ -9,9 +9,9 @@
 # 4. Move the right pointer through the array.
 # 5. Add the current element to window_sum.
 # 6. While window_sum >= target:
-#    - Update the minimum length.
-#    - Remove the leftmost element.
-#    - Move left forward.
+#   - Update the minimum length.
+#   - Remove the leftmost element.
+#   - Move left forward.
 #7. Return the minimum length.
 
 
