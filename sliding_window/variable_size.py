@@ -44,6 +44,7 @@ for right in range(len(nums)):
         # Move left pointer
         left += 1
 
+
 # Print result
 if min_length == float('inf'):
     print(0)
