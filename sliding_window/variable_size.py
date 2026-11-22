@@ -45,7 +45,6 @@ for right in range(len(nums)):
         left += 1
 
 
-
 # Print result
 if min_length == float('inf'):
     print(0)
